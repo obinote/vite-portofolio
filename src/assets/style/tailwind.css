@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .app {
+    @apply w-[428px] mx-auto bg-white text-black;
+  }
+  .app-header {
+    @apply bg-stone-100 px-5 min-h-[30px] py-5;
+  }
+  .app-body {
+    @apply bg-white text-black px-5 pt-4;
+  }
+  .app-footer {
+    @apply bg-white text-black px-5;
+  }
+
+  .card {
+    @apply mb-5;
+    & p {
+      @apply mb-2;
+    }
+    & .title {
+      @apply text-xl font-extrabold;
+    }
+    & .subtitle {
+      @apply text-sm font-semibold;
+    }
+    & .discription {
+      @apply text-sm font-normal;
+    }
+    & .img {
+      @apply bg-transparent pt-3;
+
+      & img {
+        @apply mx-auto;
+      }
+    }
+  }
+
+  .bg-emr {
+    @apply bg
+  }
+}
