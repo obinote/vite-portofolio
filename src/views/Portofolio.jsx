@@ -60,7 +60,13 @@ export default function About() {
           <Navigation />
         </header>
         <main>
-          <div className="app-body">{portofolio}</div>
+          <div className="relative app-body">
+            <div className="absolute bg-transparent sm:flex sm:space-x-2">{portofolio}</div>
+
+            <div className="absolute top-[30vh] left-2 w-56 h-56 bg-purple-300 rounded-full opacity-40 mix-blend-multiply blur-xl animate-blob sm:top-20 sm:left-48 sm:w-80 sm:h-80"></div>
+            <div className="absolute top-[30vh] right-2 w-56 h-56 bg-yellow-300 rounded-full opacity-40 mix-blend-multiply blur-xl animate-blob sm:top-28 sm:left-96 sm:w-80 sm:h-80 animate-delay-3"></div>
+            <div className="absolute top-[40vh] left-20 w-56 h-56 bg-pink-300 rounded-full opacity-40 mix-blend-multiply blur-xl animate-blob sm:top-48 sm:left-60 sm:w-80 sm:h-80 animate-delay-2"></div>
+          </div>
         </main>
       </div>
     </>

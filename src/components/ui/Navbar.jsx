@@ -21,6 +21,10 @@ function Navigation({ type, pageSlide }) {
     }, 151);
   }
 
+  function linkto(url) {
+    navigate(url);
+  }
+
   return (
     <>
       <div className="app-header">
@@ -29,10 +33,22 @@ function Navigation({ type, pageSlide }) {
             <div className="text-sm font-semibold hover:cursor-default">
               <span>Ahmad Robi</span>
             </div>
-            <div onClick={() => navigate('/menu')} className="hover:cursor-pointer">
+            <div onClick={() => navigate('/menu')} className="hover:cursor-pointer sm:hidden">
               <React.Suspense fallback={<>...</>}>
                 <Menu />
               </React.Suspense>
+            </div>
+            <div className="hidden space-x-4 sm:flex">
+              <div
+                className="flex items-center active:bg-gray-200 hover:cursor-pointer"
+                onClick={() => linkto('/')}>
+                <span className="">Tentang Saya</span>
+              </div>
+              <div
+                className="flex items-center active:bg-gray-200 hover:cursor-pointer"
+                onClick={() => linkto('/portofolio')}>
+                <span className="">Portofolio</span>
+              </div>
             </div>
           </nav>
         )}
