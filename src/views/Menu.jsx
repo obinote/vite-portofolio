@@ -3,33 +3,40 @@ import { useNavigate } from 'react-router-dom';
 
 import Navigation from '../components/ui/Navbar';
 
-function Menu(props) {
+function Menu() {
   const navigate = useNavigate();
   let [doc, setDoc] = React.useState();
 
   React.useEffect(() => {
     setDoc(document.getElementById('menu'));
-    console.log(props);
   }, []);
 
   React.useEffect(() => {
     if (doc) {
-      doc.classList.remove('scale-x-0');
+      pageSlide('in');
     }
   }, [doc]);
 
   function linkto(url) {
-    doc.classList.add('scale-x-0');
+    pageSlide('out');
     setTimeout(() => {
       navigate(url);
     }, 151);
+  }
+
+  function pageSlide(slide) {
+    if (slide === 'in') {
+      doc.classList.remove('scale-x-0');
+    } else {
+      doc.classList.add('scale-x-0');
+    }
   }
 
   return (
     <>
       <div id="menu" className="overflow-hidden transition-all ease-out scale-x-0 origin-right">
         <header>
-          <Navigation type="back" />
+          <Navigation type="back" pageSlide={pageSlide} />
         </header>
         <main>
           <div className="text-base app-body">

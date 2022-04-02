@@ -12,7 +12,7 @@ function CardPortofolio({ title, description, subTitle, id }) {
         <p className="title">{title}</p>
         <p className="subtitle">{subTitle}</p>
         <p className="discription">{description}</p>
-        <p className="img">
+        <p className="transition-all ease-out scale-y-0 origin-top img">
           <img src={bgImage} />
         </p>
       </div>

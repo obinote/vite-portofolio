@@ -6,13 +6,20 @@ import { useNavigate } from 'react-router-dom';
 const Menu = React.lazy(() => import('../../assets/icons/Menu'));
 const ArrowLeft = React.lazy(() => import('../../assets/icons/ArrowLeft'));
 
-function Navigation({ type }) {
+function Navigation({ type, pageSlide }) {
   const [menuType, setMenuType] = React.useState('none');
   const navigate = useNavigate();
 
   React.useEffect(() => {
     setMenuType(type);
   }, []);
+
+  function backLink(idx) {
+    pageSlide('out');
+    setTimeout(() => {
+      navigate(idx);
+    }, 151);
+  }
 
   return (
     <>
@@ -33,7 +40,7 @@ function Navigation({ type }) {
           <nav className="flex">
             <div
               className="flex items-center text-sm font-semibold hover:cursor-pointer"
-              onClick={() => navigate(-1)}>
+              onClick={() => backLink(-1)}>
               <React.Suspense fallback={<>...</>}>
                 <ArrowLeft />
               </React.Suspense>
@@ -47,7 +54,8 @@ function Navigation({ type }) {
 }
 
 Navigation.propTypes = {
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  pageSlide: PropTypes.func
 };
 
 Navigation.defaultProps = {

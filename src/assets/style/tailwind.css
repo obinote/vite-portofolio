@@ -40,6 +40,16 @@
   }
 
   .bg-emr {
-    @apply bg
+    @apply bg;
+  }
+}
+
+@layer utilities {
+  .animate-delay-2 {
+    animation-delay: 2s;
+  }
+
+  .animate-delay-3 {
+    animation-delay: 3s;
   }
 }

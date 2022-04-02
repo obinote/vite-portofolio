@@ -5,6 +5,7 @@ const CardPortofolio = React.lazy(() => import('../components/ui/CardPortofolio'
 
 export default function About() {
   let [project, setProject] = React.useState([]);
+  let [ready, setReady] = React.useState(false);
 
   React.useEffect(() => {
     setProject([
@@ -23,7 +24,22 @@ export default function About() {
           'Applikasi dashboard admin untuk pengaturan dan pengelolaan laundry dari aplikasi smartlink.'
       }
     ]);
+
+    setReady(true);
+    return () => {
+      setReady(false);
+    };
   }, []);
+
+  React.useEffect(() => {
+    if (ready) {
+      setTimeout(() => {
+        document.querySelectorAll('.img').forEach((element) => {
+          element.classList.remove('scale-y-0');
+        });
+      }, 100);
+    }
+  }, [ready]);
 
   let portofolio = project.map((pr) => {
     return (
